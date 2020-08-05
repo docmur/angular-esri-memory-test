@@ -1,0 +1,14 @@
+/* import the required JSAPI css */
+@import url('https://js.arcgis.com/4.16/esri/css/main.css');
+
+.esri-view {
+  width: 1000px;
+  height: 600px;
+  position: relative;
+  -webkit-transition: width .75s ease-in-out;
+  -moz-transition: width .75s ease-in-out;
+  -o-transition: width .75s ease-in-out;
+  transition: width .75s ease-in-out;
+  border-radius: .6rem .6rem 0 0;
+  box-sizing: border-box;
+}

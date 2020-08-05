@@ -1,0 +1,13 @@
+<div class="flex-container dashboard">
+  <h2>Map Page</h2>
+  <button (click)="dashboard()">Dashboard</button>
+  <div *ngFor="let gisMap of gisData; index as i">
+    {{gisMap}}
+    <app-esri [basemap]="basemapType"
+              [center]="mapCenter"
+              [id]="gisMap.id"
+              [tabIndex]="selectedTab"
+              [url]="gisMap.api"
+              [zoom]="mapZoomLevel"></app-esri>
+  </div>
+</div>
