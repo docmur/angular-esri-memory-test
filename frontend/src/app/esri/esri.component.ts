@@ -51,35 +51,29 @@ export class EsriComponent implements OnInit {
 
   ngOnDestroy() {
     console.log('Destroying the ESRI View and ESRI Map');
-    if (this._map) {
-      this._map.removeAll();
-      this._map.destroy();
-      this._map = null;
-      delete this._map;
-    } else {
-      console.log('Map is NULL');
-    }
-
-    if (this._view) {
-      this._view.map = null;
-      this._view.container = null;
+    try {
       this._view.destroy();
       this._view = null;
-      delete this._view;
-    } else {
-      console.log('View is NULL');
+
+      this._map.destroy();
+      this._map = null;
+    } catch (error) {
+      console.log(error);
     }
   }
 
   ngOnInit() {
-    console.clear();
-    console.log('Initializing Map');
     this.initializeMap().then(mapView => {
     });
   }
 
   async initializeMap() {
-    [this.EsriMap, this.EsriMapView] = await loadModules(['esri/Map', 'esri/views/MapView',]);
+    const options = {
+      version: '4.17',
+      css: true
+    };
+
+    [this.EsriMap, this.EsriMapView] = await loadModules(['esri/Map', 'esri/views/MapView'], options);
 
     /* Configure and initialize the map */
     const mapProperties: esri.MapProperties = {

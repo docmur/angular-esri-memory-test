@@ -26,7 +26,7 @@
     "@angular/pwa": "^0.900.7",
     "@angular/router": "^9.1.12",
     "@angular/service-worker": "^9.1.12",
-    "@arcgis/webpack-plugin": "^4.16.2",
+    "@arcgis/webpack-plugin": "^4.17.3",
     "@esri/arcgis-rest-auth": "^2.14.1",
     "@esri/arcgis-rest-feature-layer": "^2.14.1",
     "@esri/arcgis-rest-portal": "^2.14.1",

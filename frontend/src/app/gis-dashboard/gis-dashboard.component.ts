@@ -39,28 +39,7 @@ export class GisDashboardComponent implements OnInit, OnDestroy {
     });
   }
 
-  removeByTag(tag) {
-    const element = document.getElementsByTagName(tag);
-    while (element[0]) {
-      element[0].parentNode.removeChild(element[0])
-    }
-  }
-
   @HostListener('window:beforeunload')
   async ngOnDestroy() {
-    console.log('In PARENT NG ON DESTROY');
-
-    /* Delete the references to the maps --- this should help free the memory */
-    try {
-      this.removeByTag('app-esri');
-      this.esriMapArea = null;
-      this.esriMap = null;
-      delete this.esriMapArea;
-      delete this.esriMap;
-
-      this.ref.detectChanges();
-    } catch (error) {
-      console.log(error);
-    }
   }
 }
